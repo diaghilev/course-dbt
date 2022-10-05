@@ -2,7 +2,7 @@ version: 2
 
 sources:
 
-  - name: postgres # name of the source 
+  - name: postgres # name of the source. Others in the class used "stg_greenery"
     schema: public # this is the schema our raw data lives in
     database: raw # this is the name of our database
 
@@ -18,13 +18,19 @@ sources:
     tables:
       - name: promos 
         loaded_at_field: created_at
-        description: Contains each unique promocode on platform
+        description: Contains each unique promocode
       - name: orders 
         loaded_at_field: created_at
-        description: Contains each unique order on platform
+        description: Contains each unique order
       - name: users
         loaded_at_field: created_at
-        description: Contains each unique user on platform
+        description: Contains each unique user
       - name: events
         loaded_at_field: created_at
-        description: Contains each unique event on platform
+        description: Contains each unique event
+      - name: addresses
+        description: Contains each unique address
+      - name: order_items
+        description: Contains each unique item that was ordered
+      - name: products
+        description: Contains each unique product
