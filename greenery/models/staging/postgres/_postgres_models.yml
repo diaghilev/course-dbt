@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: stg_promos
+    description: Contains each unique promocode
+  - name: stg_orders
+    description: Contains each unique order
+  - name: stg_users
+    description: Contains each unique user
+  - name: stg_events
+    description: Contains each unique event  
+  

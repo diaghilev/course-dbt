@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+
+  - name: postgres # name of the source 
+    schema: public # this is the schema our raw data lives in
+    database: raw # this is the name of our database
+
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 48, period: hour}
+
+    tables:
+      - name: promos 
+        loaded_at_field: created_at
+        description: Contains each unique promocode on platform
+      - name: orders 
+        loaded_at_field: created_at
+        description: Contains each unique order on platform
+      - name: users
+        loaded_at_field: created_at
+        description: Contains each unique user on platform
+      - name: events
+        loaded_at_field: created_at
+        description: Contains each unique event on platform
