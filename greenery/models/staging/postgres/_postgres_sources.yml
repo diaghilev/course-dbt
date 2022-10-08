@@ -18,19 +18,19 @@ sources:
     tables:
       - name: promos 
         loaded_at_field: created_at
-        description: Contains each unique promocode
+        description: Contains each unique promocode. Source is postgres greenery database.
       - name: orders 
         loaded_at_field: created_at
-        description: Contains each unique order
+        description: Contains each unique order. Source is postgres greenery database.
       - name: users
         loaded_at_field: created_at
-        description: Contains each unique user
+        description: Contains each unique user. Source is postgres greenery database.
       - name: events
         loaded_at_field: created_at
-        description: Contains each unique event
+        description: Contains each unique event. Source is postgres greenery database.
       - name: addresses
-        description: Contains each unique address
+        description: Contains each unique address. Source is postgres greenery database.
       - name: order_items
-        description: Contains each unique item that was ordered
+        description: Contains each unique item that was ordered. Source is postgres greenery database.
       - name: products
-        description: Contains each unique product
+        description: Contains each unique product. Source is postgres greenery database.
