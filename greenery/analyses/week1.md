@@ -2,7 +2,7 @@ HOMEWORK ANSWERS
 
 1. How many users do we have? **130 users**
 ```
-SELECT COUNT(DISTINCT USER_ID) 
+SELECT COUNT(DISTINCT user_id) 
 FROM DEV_DB.DBT_HI.STG_USERS;
 ```
 
@@ -10,7 +10,7 @@ FROM DEV_DB.DBT_HI.STG_USERS;
 ```
 WITH orders as (
     SELECT
-        DATE_TRUNC('hour', created_at) AS hour,
+        DATE_TRUNC('hour', created_at_utc) AS hour,
         COUNT(DISTINCT order_id) AS order_count
     FROM DEV_DB.DBT_HI.STG_ORDERS 
     GROUP BY 1
@@ -23,9 +23,9 @@ SELECT avg(order_count) FROM orders;
 WITH delivery_duration AS (
     SELECT
         order_id,
-        DATEDIFF(day,created_at,delivered_at) AS delivery_duration
+        DATEDIFF(day,created_at_utc,delivered_at_utc) AS delivery_duration
     FROM DEV_DB.DBT_HI.STG_ORDERS
-    WHERE status = 'delivered'
+    WHERE order_status = 'delivered'
 )
 SELECT AVG(delivery_duration) FROM delivery_duration;
 ```
@@ -51,10 +51,10 @@ FROM order_count;
 ```
 WITH sessions AS (
     SELECT
-        DATE_TRUNC('hour', created_at) AS created_hour,
+        DATE_TRUNC('hour', created_at_utc) AS hour,
         COUNT(DISTINCT session_id) AS session_count
     FROM DEV_DB.DBT_HI.STG_EVENTS
-    GROUP BY created_hour
+    GROUP BY hour
 )
 SELECT AVG(session_count) AS avg_sessions FROM sessions;
 ```
