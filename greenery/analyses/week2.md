@@ -29,9 +29,9 @@ What are good indicators of a user who will likely to purchase - and not purchas
 
 Explain the mart models added?
 **Work in Progress**
-- First, I want to ensure models are ultimately able to deliver metrics such as: AOV, total user/order/items sold, user return rate and conversion rate.
-- For users, I layered in data that could help identify top/bottom users like total spend, # orders, # sessions
-- For products, I layered in data to highlight performance including page views, daily orders, high traffic/low conversion
+- **First, I want to ensure models are ultimately able to deliver metrics such as: AOV, total user/order/items sold, user return rate and conversion rate.**
+- **For users, I layered in data that could help identify top/bottom users like total spend, # orders, # sessions**
+- **For products, I layered in data to highlight performance including page views, daily orders, high traffic/low conversion**
 
 # Paste an image of the DAG here
 
