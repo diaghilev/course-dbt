@@ -1,6 +1,6 @@
-STAKEHOLDER QUESTIONS+ANSWERS
+## Stakeholder Questions + Answers
 
-PART 1
+### PART 1
 
 What is our user repeat rate? **79.83**
 ```
@@ -22,17 +22,20 @@ SELECT
 FROM purchases_cte;
 ```
 What are good indicators of a user who will likely to purchase - and not purchase - again?
-**Promo usage, Products in first order, Session behavior, Purchase amount**
+- **Promo usage**
+- **Products in first order**
+- **Session behavior**
+- **Purchase amount**
 
- PART 2
+### PART 2
 
- What assumptions are you making about each model?
- **- Primary keys are not null and unique
- - Quantities and purchases are positive**
+What assumptions are you making about each model?
+- **Primary keys are not null and unique**
+- **Quantities and purchases are positive**
 
  Did you find any bad data?
  How did you go about cleaning the data or adjusting assumptions/tests?
 
- PART 3
+ ### PART 3
 
  Which orders changed from week 1 to 2?
