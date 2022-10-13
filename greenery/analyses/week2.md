@@ -47,3 +47,7 @@ What assumptions are you making about each model?
  ### PART 3
 
  Which orders changed from week 1 to 2?
+- **The following order ID's changed:**
+    - **914b8929-e04a-40f8-86ee-357f2be3a2a2**
+    - **939767ac-357a-4bec-91f8-a7b25edd46c9**
+    - **05202733-0e17-4726-97c2-0520c024ab85**
