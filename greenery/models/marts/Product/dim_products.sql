@@ -19,8 +19,8 @@ product_orders AS (
 SELECT
     p.product_id,
     p.product_name,
-    p.product_price,
-    p.product_quantity,
+    p.product_price AS current_price,
+    p.product_quantity AS current_inventory,
     pe.daily_page_views,
     pe.daily_add_to_carts,
     po.daily_orders,

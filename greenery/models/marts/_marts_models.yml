@@ -1,0 +1,38 @@
+version: 2
+ 
+models:
+ - name: dim_products
+   description: Dim table with product grain containing both basic and aggregated metrics.
+   columns:
+     - name: product_id
+     - name: product_name
+     - name: current_price
+     - name: current_inventory
+     - name: daily_page_views
+     - name: daily_add_to_carts
+     - name: daily_orders
+     - name: daily_revenue
+
+ - name: int_product_events
+   description: Intermediate table with product grain to create aggregate metrics related to events.
+   columns:
+     - name: product_id
+     - name: daily_page_views
+     - name: daily_add_to_carts
+
+ - name: int_product_orders
+   description: Intermediate table with product grain to create aggregate metrics related to orders.
+   columns:
+     - name: product_id
+     - name: product_name
+     - name: daily_orders
+     - name: daily_revenue
+
+ - name: dim_promos
+   description: Dim table with promo grain containing both basic and aggregated metrics.
+   columns:
+     - name: promo_id
+     - name: promo_discount
+     - name: promo_status
+     - name: promo_order_count
+     - name: promo_cost
