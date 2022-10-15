@@ -39,7 +39,8 @@ Explain the mart models added?
 
 What assumptions are you making about each model?
 - **Primary keys are not null and unique**
-- **Quantities and purchases are positive**
+- **Item quantities are positive**
+- **Order statuses and event types are consistent with a set of expected values**
 
  Did you find any bad data?
  How did you go about cleaning the data or adjusting assumptions/tests?
@@ -47,7 +48,7 @@ What assumptions are you making about each model?
  ### PART 3
 
  Which orders changed from week 1 to 2?
-- **The following order ID's changed:**
+- **The following order IDs changed:**
     - **914b8929-e04a-40f8-86ee-357f2be3a2a2**
     - **939767ac-357a-4bec-91f8-a7b25edd46c9**
     - **05202733-0e17-4726-97c2-0520c024ab85**
