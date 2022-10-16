@@ -36,3 +36,33 @@ models:
      - name: promo_status
      - name: promo_order_count
      - name: promo_cost
+
+ - name: fact_sessions
+   description: Fact table with sessions grain derived primarily from events.
+   columns:
+     - name: session_id
+     - name: user_id
+     - name: first_name
+     - name: last_name
+     - name: session_start
+     - name: session_end
+     - name: session_length_mins
+     - name: session_page_views
+     - name: session_add_to_carts
+     - name: session_checkouts
+
+ - name: dim_users
+   description: Dim table with users grain containing basic user metrics and aggregated metrics.
+   columns:
+     - name: user_id
+     - name: first_name
+     - name: last_name
+     - name: created_at_utc
+     - name: updated_at_utc
+     - name: email
+     - name: phone_number
+     - name: address_id
+     - name: total_sessions
+     - name: total_orders
+     - name: total_items_ordered
+     - name: total_spend
