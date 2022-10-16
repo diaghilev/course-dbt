@@ -2,9 +2,13 @@ version: 2
  
 models:
  - name: dim_products
-   description: Dim table with product grain containing both basic and aggregated metrics.
+   description: "Dim table with product grain containing both basic and aggregated metrics."
    columns:
      - name: product_id
+       description: "The primary key for this table"
+       tests:
+          - unique
+          - not_null
      - name: product_name
      - name: current_price
      - name: current_inventory
@@ -14,33 +18,49 @@ models:
      - name: daily_revenue
 
  - name: int_product_events
-   description: Intermediate table with product grain to create aggregate metrics related to events.
+   description: "Intermediate table with product grain to create aggregate metrics related to events."
    columns:
      - name: product_id
+       description: "The primary key for this table"
+       tests:
+          - unique
+          - not_null
      - name: daily_page_views
      - name: daily_add_to_carts
 
  - name: int_product_orders
-   description: Intermediate table with product grain to create aggregate metrics related to orders.
+   description: "Intermediate table with product grain to create aggregate metrics related to orders."
    columns:
      - name: product_id
+       description: "The primary key for this table"
+       tests:
+          - unique
+          - not_null
      - name: product_name
      - name: daily_orders
      - name: daily_revenue
 
  - name: dim_promos
-   description: Dim table with promo grain containing both basic and aggregated metrics.
+   description: "Dim table with promo grain containing both basic and aggregated metrics."
    columns:
      - name: promo_id
+       description: "The primary key for this table"
+       tests:
+          - unique
+          - not_null
      - name: promo_discount
      - name: promo_status
      - name: promo_order_count
      - name: promo_cost
 
  - name: fact_sessions
-   description: Fact table with sessions grain derived primarily from events.
+   description: "Fact table with sessions grain derived primarily from events."
    columns:
      - name: session_id
+       description: "The primary key for this table"
+       tests:
+          - unique
+          - not_null
      - name: user_id
      - name: first_name
      - name: last_name
@@ -52,9 +72,13 @@ models:
      - name: session_checkouts
 
  - name: dim_users
-   description: Dim table with users grain containing basic user metrics and aggregated metrics.
+   description: "Dim table with users grain containing both basic and aggregated metrics."
    columns:
      - name: user_id
+       description: "The primary key for this table"
+       tests:
+          - unique
+          - not_null
      - name: first_name
      - name: last_name
      - name: created_at_utc
@@ -62,7 +86,34 @@ models:
      - name: email
      - name: phone_number
      - name: address_id
+     - name: address
+     - name: zipcode
+     - name: state
+     - name: country
      - name: total_sessions
      - name: total_orders
      - name: total_items_ordered
      - name: total_spend
+
+ - name: fact_orders
+   description: "Fact table with orders grain containing basic metrics plus related promo and item data."
+   columns:
+     - name: order_id
+       description: "The primary key for this table"
+       tests:
+          - unique
+          - not_null
+     - name: user_id
+     - name: promo_id
+     - name: promo_discount
+     - name: address_id
+     - name: created_at_utc
+     - name: order_cost
+     - name: shipping_cost
+     - name: order_total
+     - name: tracking_id
+     - name: shipping_service
+     - name: est_delivery_at_utc
+     - name: delivered_at_utc
+     - name: order_status
+     - name: item_count
