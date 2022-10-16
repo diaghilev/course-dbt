@@ -4,36 +4,30 @@
 
 What is our user repeat rate? **79.83**
 ```
-WITH users_cte AS (
-    SELECT
-        user_id,
-        COUNT(distinct order_id) AS purchase_count
-    FROM DEV_DB.DBT_HI.STG_ORDERS
-    GROUP BY user_id
-),
-purchases_cte AS (
-    SELECT
-        SUM(CASE WHEN purchase_count = 1 THEN 1 ELSE 0 END) AS single_purchase,
-        SUM(CASE WHEN purchase_count > 1 THEN 1 ELSE 0 END) AS multi_purchase
-    FROM users_cte
+WITH purchase_count AS (
+SELECT
+    SUM(CASE WHEN total_orders = 1 THEN 1 ELSE 0 END) AS single_purchase,
+    SUM(CASE WHEN total_orders > 1 THEN 1 ELSE 0 END) AS multi_purchase
+FROM DEV_DB.DBT_HI.DIM_USERS
 )
-SELECT 
+SELECT
     (multi_purchase/(multi_purchase+single_purchase))*100 AS user_repeat_rate
-FROM purchases_cte;
+FROM purchase_count
 ```
 What are good indicators of a user who will likely to purchase - and not purchase - again?
-- **Promo usage**
-- **Products in first order**
-- **Session behavior**
-- **Purchase amount**
+- **Session behavior such as time spent on site and 'add to cart' events**
+- **Promo usage. A deep discount on a first order may work for or against the business and should be assessed.**
+- **Products in first order. A product that exceeds expectations makes future purchases more likely. The reverse is also true.**
 
 Explain the mart models added?
-**Work in Progress**
-- **First, I want to ensure models are ultimately able to deliver metrics such as: AOV, total user/order/items sold, user return rate and conversion rate.**
-- **For users, I layered in data that could help identify top/bottom users like total spend, # orders, # sessions**
-- **For products, I layered in data to highlight performance including page views, daily orders, high traffic/low conversion**
+- **First, I consider end goals. We'll need to deliver metrics such as: AOV, user/order/items sold, session length**
+- **Next, I surface a mart model for every grain that will likely need analysis (user, order, session, ...).**
+- **Finally, I pay attention to incoming requests to iterate on models. For example, an ops stakeholder may soon need a mart model with a shipments grain. I'll also find opportunities to create int models as I start reusing business logic.** 
 
-# Paste an image of the DAG here
+### Lineage Graph
+
+<img width="1281" alt="Screen Shot 2022-10-16 at 10 54 11 AM" src="https://user-images.githubusercontent.com/109819898/196050565-e925cf82-e7f2-410b-97ab-4b70fc22741f.png">
+
 
 ### PART 2
 
@@ -42,8 +36,7 @@ What assumptions are you making about each model?
 - **Item quantities are positive**
 - **Order statuses and event types are consistent with a set of expected values**
 
- Did you find any bad data?
- How did you go about cleaning the data or adjusting assumptions/tests?
+I focused on modeling this week rather than digging more deeply into tests.
 
  ### PART 3
 
