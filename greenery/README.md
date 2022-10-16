@@ -1,4 +1,5 @@
 Welcome! This is Lauren Kaye's personal repository for the course Analytics Engineering with dbt at CoRise.
+
 **Weekly stakeholder Q&A can be found in the analyses folder.**
 
 ### Week 1 - Completed
