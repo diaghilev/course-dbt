@@ -14,10 +14,10 @@ SELECT
     (multi_purchase/(multi_purchase+single_purchase))*100 AS user_repeat_rate
 FROM purchase_count
 ```
-What are good indicators of a user who will likely to purchase - and not purchase - again?
-- **Session behavior such as time spent on site and 'add to cart' events**
-- **Promo usage. A deep discount on a first order may work for or against the business and should be assessed.**
+Theoretically, what are indicators of a user who is likely to purchase - or not purchase - again?
+- **Session behavior such as time spent on site and 'add to cart' events.**
 - **Products in first order. A product that exceeds expectations makes future purchases more likely. The reverse is also true.**
+- **Promo usage. Degree of discounting on a first order may work for or against the business and should be analyzed.**
 
 Explain the mart models added?
 - **First, I consider end goals. We'll need to deliver metrics such as: AOV, user/order/items sold, session length**
