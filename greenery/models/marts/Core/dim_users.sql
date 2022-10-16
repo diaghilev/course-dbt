@@ -4,8 +4,6 @@
   )
 }}
 
--- I will likely create 1 or more int tables from the following CTEs
-
 WITH users AS (
     SELECT * FROM {{ ref('stg_users') }}
 ),
@@ -21,6 +19,10 @@ orders AS (
 order_items AS (
     SELECT * FROM {{ ref('stg_order_items') }}
 ), 
+
+addresses AS (
+    SELECT * FROM {{ ref('stg_addresses') }}
+),
 
 user_events AS (
     SELECT
@@ -59,8 +61,10 @@ SELECT
     u.email,
     u.phone_number,
     u.address_id,
-    -- add mins active,
-    -- add promo usage,
+    a.address,
+    a.zipcode,
+    a.state,
+    a.country,
     COALESCE(ue.total_sessions,0) AS total_sessions,
     COALESCE(uo.total_orders,0) AS total_orders,
     COALESCE(uoi.items_ordered,0) AS total_items_ordered,
@@ -72,4 +76,6 @@ LEFT JOIN user_events ue
 ON u.user_id = ue.user_id
 LEFT JOIN user_order_items uoi
 ON u.user_id = uoi.user_id
+LEFT JOIN addresses a
+ON u.address_id = a.address_id
 ORDER BY total_spend DESC
