@@ -1,4 +1,5 @@
 Welcome! This is Lauren Kaye's personal repository for the course Analytics Engineering with dbt at CoRise.
+**Weekly stakeholder Q&A can be found in the analyses folder.**
 
 ### Week 1 - Completed
 
@@ -10,7 +11,7 @@ This week's assignment involved creation of:
 - **snapshot model** for the orders table to track order status updates over time.
 - **analyses** containing common business user questions and answers
 
-### Week 2 - In Progress
+### Week 2 - Recently Completed
 
 This week's assignment involves creation of:
 - **marts** folder with subdirectories for Core, Marketing and Product teams
