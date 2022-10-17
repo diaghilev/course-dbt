@@ -22,7 +22,8 @@ SELECT
     DATEDIFF(m,session_start, session_end) as session_length_mins,
     SUM(CASE WHEN e.event_type = 'page_view' THEN 1 ELSE 0 END) AS session_page_views,
     SUM(CASE WHEN e.event_type = 'add_to_cart' THEN 1 ELSE 0 END) AS session_add_to_carts,
-    SUM(CASE WHEN e.event_type = 'checkout' THEN 1 ELSE 0 END) AS session_checkouts
+    SUM(CASE WHEN e.event_type = 'checkout' THEN 1 ELSE 0 END) AS session_checkouts,
+    CASE WHEN session_checkouts = 0 THEN 0 ELSE 1 END AS has_converted
 FROM events e
 LEFT JOIN users u
 ON e.user_id = u.user_id
