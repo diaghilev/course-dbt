@@ -9,6 +9,7 @@ WITH order_items_source AS (
 )
 
 SELECT 
+    {{ dbt_utils.surrogate_key(['order_id','product_id']) }} AS order_product_id,
     order_id,
     product_id,
     quantity   

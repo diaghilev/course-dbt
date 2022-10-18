@@ -50,6 +50,11 @@ models:
   - name: stg_order_items
     description: Contains each unique item that was ordered. Source is postgres greenery database.
     columns:
+      - name: order_product_id
+        description: "Primary key for this table produced within dbt by surrogate-key macro"
+        tests:
+          - unique
+          - not_null
       - name: order_id
         description: "Order ID for the order"
         tests:
