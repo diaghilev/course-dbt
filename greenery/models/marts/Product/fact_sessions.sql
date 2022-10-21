@@ -18,9 +18,9 @@ SELECT
     MIN(e.created_at_utc) as session_start,
     MAX(e.created_at_utc) as session_end,
     DATEDIFF(m, session_start, session_end) as session_length_mins,
-    sa.session_page_views,
-    sa.session_add_to_carts,
-    sa.session_checkouts,
+    sa.page_views as session_page_views,
+    sa.add_to_carts as session_add_to_carts,
+    sa.checkouts as session_checkouts,
     sa.has_converted
 FROM events e
 LEFT JOIN sessions_agg sa

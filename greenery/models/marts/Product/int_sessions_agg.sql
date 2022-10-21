@@ -9,13 +9,20 @@ WITH events AS (
     SELECT * FROM {{ ref('stg_events') }}
 )
 
+{%-
+  set event_types = dbt_utils.get_column_values(
+    table = ref('stg_events'),
+        column = 'event_type',
+            order_by = 'event_type asc'
+  )
+-%}
+
 SELECT
-    session_id,
-    user_id, 
-    SUM(CASE WHEN event_type = 'page_view' THEN 1 ELSE 0 END) AS session_page_views,
-    SUM(CASE WHEN event_type = 'add_to_cart' THEN 1 ELSE 0 END) AS session_add_to_carts,
-    SUM(CASE WHEN event_type = 'checkout' THEN 1 ELSE 0 END) AS session_checkouts,
-    SUM(CASE WHEN event_type = 'package_shipped' THEN 1 ELSE 0 END) AS session_package_shippeds,
-    CASE WHEN session_checkouts = 0 THEN 0 ELSE 1 END AS has_converted
+    session_id
+    , user_id
+    {%- for event_type in event_types %}
+    , sum(case when event_type = '{{ event_type }}' then 1 else 0 end) as {{event_type}}s
+    {%- endfor %}
+    , CASE WHEN checkouts = 0 THEN 0 ELSE 1 END AS has_converted
 FROM events
 GROUP BY 1,2

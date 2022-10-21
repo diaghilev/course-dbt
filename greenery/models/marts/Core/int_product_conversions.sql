@@ -10,7 +10,7 @@ WITH events AS (
 
 sessions_agg AS (
     SELECT * FROM {{ ref('int_sessions_agg') }}
-)
+),
 
 session_product AS (
   SELECT

@@ -92,10 +92,10 @@ models:
           - unique
           - not_null
      - name: user_id
-     - name: session_page_views
-     - name: session_add_to_carts
-     - name: session_checkouts
-     - name: session_package_shippeds
+     - name: page_views
+     - name: add_to_carts
+     - name: checkouts
+     - name: package_shippeds
      - name: has_converted
 
  - name: dim_users

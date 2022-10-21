@@ -8,22 +8,24 @@ SELECT
     SUM(has_converted)/COUNT(has_converted)*100 AS overall_conversation_rate
 FROM DEV_DB.DBT_HI.FACT_SESSIONS
 ```
-What is our conversion rate by product? **Coming soon**
+What is our conversion rate by product? **Conversion rate is now in the dim_product table.**
 
 Theoretically, Why might certain products be converting at higher/lower rates than others?
-- **How the product's value prop is expressed on the page.**
-- **Presence of social proof via reviews, photos and other indicators.**
+- **How product's value prop is expressed on the page. (Example: Plant thrives in shade and blooms annually.)**
+- **Presence of social proof via reviews, photos and other social indicators.**
 - **Alignment between the type of user brought to the page and the product's relevance to that user.**
 
 ### Macros
 
+**Added macro to automatically generate event columns.** 
+
 ### Permissions
 
-Added this week.
+**Reporting role permissions added this week.**
 
 ### Packages
 
-I added a surrogate key to stg_order_items using the dbt_utils.surrogate_key macro. I then added a uniqueness test to that field.
+**I added a surrogate key to stg_order_items using the dbt_utils.surrogate_key macro. I then added a uniqueness test to that field.**
 
 ### Snapshots
 
