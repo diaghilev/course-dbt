@@ -4,7 +4,7 @@
 
 What is our overall conversion rate? **62.45**
 
-**Conversion rate definition: sessions with a checkout / all sessions.**
+**Conversion rate definition: sessions with a checkout / all sessions**
 
 ```
 SELECT 
@@ -13,16 +13,16 @@ FROM DEV_DB.DBT_HI.FACT_SESSIONS
 ```
 What is our conversion rate by product? 
 
-**Conversion rate is in the dim_product table.**
+**Conversion rate by product is located in the dim_product table.**
 
 Theoretically, Why might certain products be converting at higher/lower rates than others?
-- **Strength of product's value prop as expressed on the page.** (such as "product requires minimal upkeep")
-- **Presence of social proof via reviews or photos featuring product in a customer's home.**
+- **Strength of product's value prop as expressed on the page** (such as "product requires minimal upkeep")
+- **Presence of social proof via reviews or photos featuring product in a customer's home**
 - **Alignment between the type of user brought to the page and the product's relevance to that user** (such as a city dweller directed to products that require a large plot of land)
 
 ### Macros
 
-**Auto generated columns for event types rather than hard coding them.** 
+**Auto-generated rather than hard coded event types.** 
 
 ```
 {{
@@ -56,7 +56,7 @@ GROUP BY 1,2
 
 ### Permissions
 
-**Added reporting role permissions into dbt_project.yml.**
+**I added reporting role permissions into dbt_project.yml.**
 ```
 models:
   greenery:
@@ -67,7 +67,7 @@ models:
 
 ### Packages
 
-**Added a surrogate key to stg_order_items using the dbt_utils.surrogate_key macro. I then added a uniqueness test to that field.**
+**I added a surrogate key to stg_order_items using the dbt_utils.surrogate_key macro. I then added a uniqueness test to that field.**
 
 ```
 {{
