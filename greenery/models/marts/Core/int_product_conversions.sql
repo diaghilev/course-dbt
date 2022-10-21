@@ -14,13 +14,12 @@ sessions_agg AS (
 
 session_product AS (
   SELECT
-    e.session_id,
+    DISTINCT e.session_id,
     e.product_id,
     sa.has_converted
   FROM events e
   LEFT JOIN sessions_agg sa
   ON e.session_id = sa.session_id 
-  WHERE e.event_type = 'add_to_cart'
 )
 
 SELECT
@@ -29,4 +28,5 @@ SELECT
     COUNT(has_converted) AS total_sessions,
     SUM(has_converted)/COUNT(has_converted)*100 AS conversion_rate
 FROM session_product
+WHERE product_id IS NOT NULL
 GROUP BY 1
