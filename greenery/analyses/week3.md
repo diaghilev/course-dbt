@@ -3,23 +3,26 @@
 ### Conversion Rates
 
 What is our overall conversion rate? **62.45**
-**Conversion rate is defined as sessions with a checkout divided by all sessions.**
+
+**Conversion rate definition: sessions with a checkout / all sessions.**
 
 ```
 SELECT 
     SUM(has_converted)/COUNT(has_converted)*100 AS overall_conversation_rate
 FROM DEV_DB.DBT_HI.FACT_SESSIONS
 ```
-What is our conversion rate by product? **Conversion rate is now in the dim_product table.**
+What is our conversion rate by product? 
+
+**Conversion rate is in the dim_product table.**
 
 Theoretically, Why might certain products be converting at higher/lower rates than others?
-- **Strength of product's value prop as expressed on the page (such as "product requires minimal upkeep").**
+- **Strength of product's value prop as expressed on the page.** (such as "product requires minimal upkeep")
 - **Presence of social proof via reviews or photos featuring product in a customer's home.**
-- **Alignment between the type of user brought to the page and the product's relevance to that user (such as a city dweller being directed to products that require a large plot of land).**
+- **Alignment between the type of user brought to the page and the product's relevance to that user** (such as a city dweller directed to products that require a large plot of land)
 
 ### Macros
 
-**Added jinja to int_sessions_agg model to automatically generate columns for event types rather than hard coding them.** 
+**Auto generated columns for event types rather than hard coding them.** 
 
 ```
 {{
@@ -53,7 +56,7 @@ GROUP BY 1,2
 
 ### Permissions
 
-**Add role permissions this week into dbt_project.yml.**
+**Added reporting role permissions into dbt_project.yml.**
 ```
 models:
   greenery:
@@ -64,7 +67,7 @@ models:
 
 ### Packages
 
-**I added a surrogate key to stg_order_items using the dbt_utils.surrogate_key macro. I then added a uniqueness test to that field.**
+**Added a surrogate key to stg_order_items using the dbt_utils.surrogate_key macro. I then added a uniqueness test to that field.**
 
 ```
 {{
