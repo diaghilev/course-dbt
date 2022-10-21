@@ -2,7 +2,8 @@ Welcome! This is Lauren Kaye's personal repository for the course Analytics Engi
 
 **Weekly stakeholder Q&A can be found in the analyses folder.**
 
-Kickoff: I am provided us with tables (orders, users, events, promos, products, order_items) stored on a postgres database.
+
+Project Kickoff: I am provided us with tables (orders, users, events, promos, products, order_items) stored on a postgres database.
 
 Week 1 involved:
 - **staging tables** with light transformations of our choosing using snowflake and dbt
