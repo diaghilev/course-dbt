@@ -1,7 +1,11 @@
-Welcome! This is Lauren Kaye's personal repository for the course Analytics Engineering with dbt at CoRise.
+## Welcome! 
+
+This is Lauren Kaye's personal repository for the course Analytics Engineering with dbt at CoRise.
 
 **Weekly stakeholder Q&A can be found in the analyses folder.**
 
+
+## Content covered
 
 Project Kickoff: I am provided us with tables (orders, users, events, promos, products, order_items) stored on a postgres database.
 
@@ -19,4 +23,4 @@ Week 2 involved:
 Week 3 involved:
 - **macro** written to auto-generate rather than hardcode sql
 - **post-hook** used to set role permissions
-- **packages** installed and used
+- **packages** installed and used (dbt-utils & codegen)
