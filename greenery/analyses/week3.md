@@ -1,6 +1,6 @@
 ## Stakeholder Questions + Answers
 
-### PART 1: Conversion Rates
+### Conversion Rates
 
 What is our overall conversion rate? **62.45**
 ```
@@ -15,12 +15,19 @@ Theoretically, Why might certain products be converting at higher/lower rates th
 - **Presence of social proof via reviews, photos and other indicators.**
 - **Alignment between the type of user brought to the page and the product's relevance to that user.**
 
-### PART 2: Macros
-### PART 3 Permissions
-### PART 4: Packages
+### Macros
+
+### Permissions
+
+Added this week.
+
+### Packages
 
 I added a surrogate key to stg_order_items using the dbt_utils.surrogate_key macro. I then added a uniqueness test to that field.
 
-### PART 5: Snapshots
+### Snapshots
 
 The following orders have been updated since week 3:
+- **8385cfcd-2b3f-443a-a676-9756f7eb5404**
+- **e24985f3-2fb3-456e-a1aa-aaf88f490d70**
+- **5741e351-3124-4de7-9dff-01a448e7dfd4**
