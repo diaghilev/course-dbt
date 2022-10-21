@@ -4,29 +4,30 @@
   )
 }}
 
-WITH product AS (
-    SELECT * FROM {{ ref('stg_products') }}
-), 
-
-product_events AS (
+WITH product_events AS (
     SELECT * FROM {{ ref('int_product_events') }}
 ),
 
 product_orders AS (
     SELECT * FROM {{ ref('int_product_orders') }}
+),
+
+product_conversions AS (
+    SELECT * FROM {{ ref('int_product_conversions')}}
 )
 
 SELECT
-    p.product_id,
-    p.product_name,
-    p.product_price AS current_price,
-    p.product_quantity AS current_inventory,
+    po.product_id,
+    po.product_name,
+    po.current_price,
+    po.current_inventory,
+    po.daily_orders,
+    po.daily_revenue,
     pe.daily_page_views,
     pe.daily_add_to_carts,
-    po.daily_orders,
-    po.daily_revenue
-FROM product p
+    pc.conversion_rate
+FROM product_orders po
 LEFT JOIN product_events pe
-ON p.product_id = pe.product_id
-LEFT JOIN product_orders po
-ON p.product_id = po.product_id
+ON po.product_id = pe.product_id
+LEFT JOIN product_conversions pc
+ON po.product_id = pc.product_id

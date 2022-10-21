@@ -16,6 +16,7 @@ models:
      - name: daily_add_to_carts
      - name: daily_orders
      - name: daily_revenue
+     - name: conversion_rate
 
  - name: int_product_events
    description: "Intermediate table with product grain to create aggregate metrics related to events."
@@ -40,6 +41,18 @@ models:
      - name: daily_orders
      - name: daily_revenue
 
+ - name: int_product_conversions
+   description: "Intermediate table with product grain to calculate conversion rate for each product."
+   columns:
+     - name: product_id
+       description: "The primary key for this table"
+       tests:
+          - unique
+          - not_null
+     - name: converted_sessions
+     - name: total_sessions
+     - name: conversion_rate
+
  - name: dim_promos
    description: "Dim table with promo grain containing both basic and aggregated metrics."
    columns:
@@ -62,14 +75,28 @@ models:
           - unique
           - not_null
      - name: user_id
-     - name: first_name
-     - name: last_name
      - name: session_start
      - name: session_end
      - name: session_length_mins
      - name: session_page_views
      - name: session_add_to_carts
      - name: session_checkouts
+     - name: has_converted
+
+ - name: int_sessions_agg
+   description: "Intermediate table with sessions grain aggregating session events."
+   columns:
+     - name: session_id
+       description: "The primary key for this table"
+       tests:
+          - unique
+          - not_null
+     - name: user_id
+     - name: session_page_views
+     - name: session_add_to_carts
+     - name: session_checkouts
+     - name: session_package_shippeds
+     - name: has_converted
 
  - name: dim_users
    description: "Dim table with users grain containing both basic and aggregated metrics."
