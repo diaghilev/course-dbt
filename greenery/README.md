@@ -7,7 +7,7 @@ This is Lauren Kaye's repository for the Analytics Engineering intensive at CoRi
 
 ## Content covered
 
-During project kickoff, I am provided us with raw tables containing ecommerce data for a store 'greenery'.
+During project kickoff, I am provided with raw tables containing ecommerce data for a store 'greenery'.
 
 Week 1 involved:
 - **staging tables** with light transformations of our choosing using snowflake and dbt
