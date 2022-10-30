@@ -20,10 +20,11 @@ Week 2 involved:
 - **fact** and **dim** models of our choosing based on business questions posed to us
 - **tests** for our models
 
-Week 3 involved:
+Week 3+4 involved:
 - **macro** written to auto-generate rather than hardcode sql
 - **post-hook** used to set role permissions
 - **packages** installed and used (dbt-utils & codegen)
+- **exposure** added to document potential upstream dependancies
 
 Current state of the DAG:
 
