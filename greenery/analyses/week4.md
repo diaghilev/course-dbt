@@ -40,3 +40,7 @@ In sum, a project like this one using dbt offers some of the following benefits:
     - testing
     - documentation
 - Simultaneously, analysts can handle more sophisticated pipeline building with SQL (and a little jinja)
+
+### Current state of DAG
+<img width="1617" alt="Screen Shot 2022-10-30 at 1 51 14 PM" src="https://user-images.githubusercontent.com/109819898/198900999-4a721fe3-47f2-4fe1-8801-298704859ef9.png">
+
