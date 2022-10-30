@@ -9,7 +9,7 @@ The orders that were shipped this week are:
 
 ### Modeling Challenge
 
-We can continuously **monitor the product funnel conversion rates** with the following query:
+We can continuously **monitor the product funnel** with the following query:
 
 ```
 SELECT
@@ -19,7 +19,9 @@ SELECT
 FROM DEV_DB.DBT_HI.INT_SESSIONS_AGG;
 ```
 
-The **results** this week are as follows:
+If our data was continuously updating, we might add a date field and make a fact_daily_funnel model to monitor improvements over time.
+
+The **results** for this query, representing all the data we have, are as follows:
 
 | View Conversion Rate  | Add Conversion Rate | Checkout Conversion Rate
 | --------------- | --------------- | ------------- |

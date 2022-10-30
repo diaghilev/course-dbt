@@ -1,7 +1,7 @@
 version: 2
 
 exposures:  
-  - name: Product Funnel Dashboard
+  - name: Funnel Dashboard
     description: Models that are critical to a (imagined!) product funnel dashboard.
     type: dashboard
     maturity: high
