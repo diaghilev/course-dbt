@@ -1,0 +1,12 @@
+version: 2
+
+exposures:  
+  - name: Product Funnel Dashboard
+    description: Models that are critical to a (imagined!) product funnel dashboard.
+    type: dashboard
+    maturity: high
+    owner:
+      name: Lauren Kaye
+      email: lauren@email.com
+    depends_on:
+      - ref('int_sessions_agg')
