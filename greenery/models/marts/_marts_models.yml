@@ -19,7 +19,7 @@ models:
      - name: conversion_rate
 
  - name: int_product_events
-   description: "Intermediate table with product grain to create aggregate metrics related to events."
+   description: "Intermediate table with product grain that aggregates daily metrics related to events."
    columns:
      - name: product_id
        description: "The primary key for this table"

@@ -22,34 +22,27 @@ item_count AS (
         SUM(quantity) AS item_count
     FROM order_items
     GROUP BY 1
-),
-
-promo_discount AS (
-    SELECT
-        promo_id,
-        promo_discount
-    FROM promos
 )
 
 SELECT 
     o.order_id,
-    user_id,
+    o.user_id,
     o.promo_id,
-    promo_discount,
-    address_id,
-    created_at_utc,
-    order_cost,
-    shipping_cost,
-    order_total,
-    tracking_id,
-    shipping_service,
-    est_delivery_at_utc,
-    delivered_at_utc,
-    order_status,
-    item_count
+    p.promo_discount,
+    o.address_id,
+    o.created_at_utc,
+    o.order_cost,
+    o.shipping_cost,
+    o.order_total,
+    o.tracking_id,
+    o.shipping_service,
+    o.est_delivery_at_utc,
+    o.delivered_at_utc,
+    o.order_status,
+    ic.item_count
 FROM orders o
 LEFT JOIN item_count ic
 ON o.order_id = ic.order_id
-LEFT JOIN promo_discount pd
-ON o.promo_id = pd.promo_id
+LEFT JOIN promos p
+ON o.promo_id = p.promo_id
 ORDER BY 1
