@@ -9,4 +9,4 @@ exposures:
       name: Lauren Kaye
       email: lauren@email.com
     depends_on:
-      - ref('int_sessions_agg')
+      - ref('fact_product_funnel')

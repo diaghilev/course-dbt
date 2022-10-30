@@ -39,4 +39,4 @@ In sum, a project like this one using dbt offers some of the following benefits:
     - version control, code review
     - testing
     - documentation
-- Simultaneously, analysts can handle more sophisticated pipeline building with SQL (and a little fairly approachable jinja)
+- Simultaneously, analysts can handle more sophisticated pipeline building with SQL (and a little jinja)

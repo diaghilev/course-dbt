@@ -144,3 +144,13 @@ models:
      - name: delivered_at_utc
      - name: order_status
      - name: item_count
+
+ - name: fact_product_funnel
+   description: "Fact table showing how users move through the product funnel, including all event activity on record."
+   columns:
+     - name: view_conversion_rate
+       description: "% of sessions that include a page view event out of all sessions"
+     - name: add_conversion_rate
+       description: "% of sessions that include an add-to-cart event out of all sessions"
+     - name: checkout_conversion_rate
+       description: "% of sessions that include a checkout event out of all sessions"
